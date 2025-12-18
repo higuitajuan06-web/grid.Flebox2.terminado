@@ -1,0 +1,234 @@
+:root {
+    --color-black: #000000;      /* Variable para reutilizar el color negro fácilmente */
+    --color-white: #ffffff;      /* Variable para reutilizar el color blanco fácilmente */
+}
+
+* {
+    box-sizing: border-box;      /* Hace que el padding y bordes no aumenten el ancho total del elemento */
+    margin: 0;                   /* Resetea el margen externo por defecto del navegador */
+    padding: 0;                  /* Resetea el relleno interno por defecto del navegador */
+}
+
+body {
+    background: #00c9ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #92fe9d, #00c9ff); /* Degradado para navegadores Chrome/Safari viejos */
+    background: linear-gradient(to right, #92fe9d, #00c9ff); /* Degradado moderno de verde a azul */
+    color: var(--color-white);   /* Aplica el color blanco de la variable al texto */
+    font-family: "Noto Sans", sans-serif; /* Define la fuente principal y una de respaldo */
+    min-height: 100vh;           /* Asegura que el cuerpo cubra al menos toda la altura de la pantalla */
+}
+
+.container-main {
+    display: grid;               /* Activa el sistema de rejilla para organizar hijos */
+    gap: 12px;                   /* Espacio de separación entre los elementos de la rejilla */
+    grid-template-columns: 1fr 3fr; /* Crea dos columnas: una pequeña y una tres veces más grande */
+    margin: 20px auto;           /* Separa el contenedor de arriba y lo centra horizontalmente */
+    max-width: 1500px;           /* Evita que el contenido se estire demasiado en pantallas gigantes */
+    padding: 40px auto;          /* Espaciado interno arriba y abajo */
+    width: 90%;                  /* El contenedor ocupará siempre el 90% del ancho de la pantalla */
+}
+
+.banner {
+    background-position: center center; /* Centra la imagen de fondo si se agrega una */
+    background-size: cover;      /* La imagen de fondo cubriría todo el espacio sin deformarse */
+    border: 2px solid var(--color-white); /* Borde blanco de 2 píxeles de grosor */
+    border-radius: 10px;         /* Redondea las esquinas del banner */
+    display: flex;               /* Activa flexbox para alinear contenido interno */
+    flex-direction: column;      /* Apila los elementos de arriba hacia abajo */
+    justify-content: space-between; /* Distribuye el espacio para que el contenido se separe al máximo */
+    padding: 20px;               /* Espacio entre el borde y el contenido del banner */
+    text-align: center;          /* Centra el texto dentro del banner */
+}
+
+.banner ul {
+    list-style: none;            /* Quita los puntos decorativos de la lista */
+}
+
+.banner ul li {
+    font-weight: bold;           /* Pone el texto de la lista en negrita */
+    padding-bottom: 8px;         /* Separa cada elemento de la lista hacia abajo */
+}
+
+.banner .button {
+    background: cornflowerblue;  /* Color de fondo azul suave para el botón */
+    border: 3px solid var(--color-black); /* Borde negro grueso para resaltar */
+    border-radius: 100px;        /* Botón con forma de píldora (bordes totalmente circulares) */
+    color: var(--color-white);   /* Texto del botón en color blanco */
+    cursor: pointer;             /* Cambia el ratón a la "manita" para indicar que es clickeable */
+    display: block;              /* Hace que el botón se comporte como un bloque completo */
+    font-family: "Noto Sans", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s;  /* Suaviza el efecto de animación cuando cambie el tamaño */
+    width: 100%;                 /* El botón ocupa todo el ancho de su columna */
+}
+
+.banner .button:hover {
+    transform: scale(1.03);      /* Aumenta ligeramente el tamaño al pasar el ratón (efecto zoom) */
+}
+
+.container-cards {
+    display: grid;               /* Sistema de rejilla para organizar las tarjetas */
+    gap: 10px;                   /* Separación entre cada tarjeta */
+    grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual ancho automáticamente */
+}
+
+.card {
+    background-position: center center;
+    background-size: cover;
+    border-radius: 8px;          /* Redondea las esquinas de las tarjetas */
+    min-height: 210px;           /* Altura mínima para que todas las tarjetas se vean uniformes */
+    padding: 20px;
+    transition: transform 0.2s;  /* Suaviza la animación de escalado */
+}
+
+.card:hover {
+    transform: scale(1.03);      /* Hace que la tarjeta crezca un poco al pasar el ratón */
+}
+
+.card .texts {
+    display: flex;               /* Flexbox para manejar el texto interno */
+    flex-direction: column;      /* Apila el título y el subtítulo verticalmente */
+    justify-content: space-between; /* Separa el texto superior del inferior al máximo */
+    height: 100%;                /* Obliga al contenido a usar todo el alto de la tarjeta */
+}
+
+.card .texts h5 {
+    text-align: right;           /* Alinea el texto del h5 a la derecha */
+}
+
+hr {
+    background-color: var(--color-black); /* Color de la línea divisoria */
+    color: var(--color-black);
+    height: 4px;                 /* Grosor de la línea */
+    margin: 20px auto;           /* Espacio arriba/abajo y centrada horizontalmente */
+    max-width: 1500px;
+    width: 90%;
+}
+
+.container-info {
+    display: grid;               /* Rejilla para la sección de información */
+    gap: 10px;
+    grid-template-columns: 3fr 1fr; /* Columna de texto ancha y columna de formulario angosta */
+    margin: 20px auto;
+    max-width: 1500px;
+    padding: 40px auto;
+    width: 90%;
+}
+
+.container-info .presentation {
+    background-color: var(--color-white); /* Fondo blanco para resaltar el texto */
+    border: 2px solid var(--color-black); /* Marco negro fino */
+    border-radius: 10px;
+    color: var(--color-black);   /* Texto negro para legibilidad sobre blanco */
+    padding: 10px;
+    text-align: justify;         /* Alinea el texto por ambos lados para que se vea ordenado */
+}
+
+.container-info .form {
+    display: flex;               /* Flexbox para el formulario */
+    flex-direction: column;      /* Pone un campo de texto debajo del otro */
+    justify-content: center;     /* Centra los campos verticalmente */
+}
+
+.container-info .form input {
+    border-radius: 8px;          /* Redondea las esquinas de las cajas de texto */
+    margin-bottom: 14px;         /* Espacio de separación con el siguiente campo */
+    padding: 6px;                /* Espacio interno para que el texto no toque los bordes */
+}
+
+.container-info .form textarea {
+    border-radius: 8px;          /* Redondea las esquinas del área de mensaje */
+    margin-bottom: 14px;
+    padding: 6px;
+    resize: none;                /* Bloquea que el usuario pueda estirar el cuadro de texto */
+}
+
+.container-info .form .button {
+    background: cornflowerblue;            /* Establece un color azul claro suave como fondo del botón */
+    border: 3px solid var(--color-black);  /* Crea un borde sólido grueso de 3px usando el color negro de tu variable */
+    border-radius: 10px;                   /* Redondea las esquinas del botón para un aspecto más moderno y suave */
+    color: var(--color-white);             /* Define el color del texto en blanco usando tu variable global */
+    cursor: pointer;                       /* Cambia el puntero del ratón a una mano al pasar por encima, indicando que es clicable */
+    display: block;                        /* Hace que el botón se comporte como un bloque, permitiendo que ocupe todo el ancho */
+    font-family: "Noto Sans", sans-serif;  /* Aplica la tipografía específica definida para mantener la coherencia visual */
+    font-size: 14px;                       /* Establece el tamaño de la letra del texto dentro del botón */
+    font-weight: bold;                     /* Pone el texto en negrita para que resalte y sea más fácil de leer */
+    padding: 10px;                         /* Añade un espacio de 10px entre el texto y los bordes del botón para darle "aire" */
+    text-align: center;                    /* Asegura que el texto esté perfectamente centrado dentro del botón */
+    transition: transform 0.2s;            /* Prepara una animación suave de 0.2 segundos para cambios de tamaño o movimiento */
+    width: 100%;                           /* Obliga al botón a expandirse hasta ocupar el 100% del ancho de su contenedor */
+}
+
+.container-images {
+    display: grid;               /* Rejilla para la galería de imágenes */
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr); /* 4 imágenes por fila exactamente iguales */
+    margin: 20px auto;
+    max-width: 1500px;
+    padding: 40px auto;
+    width: 90%;
+}
+
+.container-images img {
+    border: 2px solid var(--color-black); /* Marco negro para cada imagen */
+    transition: transform 0.2s;  /* Suaviza el efecto de zoom */
+    width: 100%;                 /* La imagen ocupa todo el ancho de su celda */
+}
+
+.container-images img:hover {
+    transform: scale(1.03);      /* Pequeño zoom al pasar el ratón sobre la imagen */
+}
+
+/* Media Queries (Ajustes para diferentes pantallas) */
+
+/* Pantallas medianas/grandes (Laptops) */
+@media only screen and (max-width: 992px) {
+    .container-info .presentation {
+        font-size: 14px;         /* Reduce el tamaño de letra para que quepa mejor */
+    }
+
+    .container-images {
+        grid-template-columns: repeat(3, 1fr); /* Baja de 4 a 3 imágenes por fila */
+    }
+}
+
+/* Dispositivos medianos (Tablets) */
+@media only screen and (max-width: 768px) {
+    .container-main {
+        grid-template-columns: 1fr; /* Pone el banner arriba y el contenido abajo (1 columna) */
+    }
+
+    .container-cards {
+        grid-template-columns: repeat(2, 1fr); /* De 3 a 2 tarjetas por fila */
+    }
+
+    .container-info {
+        grid-template-columns: 1fr; /* Texto arriba y formulario abajo */
+    }
+
+    .container-info .presentation {
+        font-size: 13px;
+    }
+
+    .container-images {
+        grid-template-columns: repeat(2, 1fr); /* Solo 2 imágenes por fila */
+    }
+}
+
+/* Dispositivos pequeños (Celulares) */
+@media only screen and (max-width: 600px) {
+    .container-cards {
+        grid-template-columns: 1fr; /* Una tarjeta por fila */
+    }
+
+    .container-info .presentation {
+        font-size: 11px;         /* Letra pequeña para pantallas muy angostas */
+    }
+
+    .container-images {
+        grid-template-columns: 1fr; /* Una imagen por fila para que se vean grandes */
+    }
+}
